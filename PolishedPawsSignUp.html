@@ -92,21 +92,89 @@
     <p>&copy; 2026 Polished Paws. All rights reserved.</p>
 </footer>
 
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-
 <script>
 document.getElementById("signupForm").addEventListener("submit", function(e) {
-    const pass = document.getElementById("password").value;
-    const confirm = document.getElementById("confirmPassword").value;
+    e.preventDefault(); // Stop form from submitting
 
-    if (pass !== confirm) {
-        e.preventDefault();
-        document.getElementById("errorMsg").textContent = "Passwords do not match!";
+    let isValid = true;
+
+    const username = document.querySelector("input[type='text']");
+    const email = document.querySelector("input[type='email']");
+    const password = document.getElementById("password");
+    const confirmPassword = document.getElementById("confirmPassword");
+    const errorMsg = document.getElementById("errorMsg");
+
+    // Reset previous errors
+    resetField(username);
+    resetField(email);
+    resetField(password);
+    resetField(confirmPassword);
+    errorMsg.textContent = "";
+
+    // Required field checks
+    if (username.value.trim() === "") {
+        showError(username);
+        isValid = false;
     }
+
+    if (email.value.trim() === "") {
+        showError(email);
+        isValid = false;
+    } else {
+        // Email format validation
+        const emailPattern = /^[^ ]+@[^ ]+\.[a-z]{2,3}$/;
+        if (!email.value.match(emailPattern)) {
+            showError(email);
+            errorMsg.textContent = "Enter a valid email (example: joe@test.com)";
+            isValid = false;
+        }
+    }
+
+    if (password.value.trim() === "") {
+        showError(password);
+        isValid = false;
+    }
+
+    if (confirmPassword.value.trim() === "") {
+        showError(confirmPassword);
+        isValid = false;
+    }
+
+    // Password match check
+    if (password.value !== confirmPassword.value) {
+        showError(password);
+        showError(confirmPassword);
+        errorMsg.textContent = "Passwords do not match!";
+        isValid = false;
+    }
+
+    if (isValid) {
+        alert("Registration successful!");
+        document.getElementById("signupForm").reset();
+    }
+});
+
+// Highlight field red
+function showError(field) {
+    field.classList.add("error-field");
+}
+
+// Remove red highlight
+function resetField(field) {
+    field.classList.remove("error-field");
+}
+
+// Remove red while typing (live reset)
+document.querySelectorAll("input").forEach(input => {
+    input.addEventListener("input", function() {
+        resetField(this);
+        document.getElementById("errorMsg").textContent = "";
+    });
 });
 </script>
 
 </body>
 
 </html>
+
 
