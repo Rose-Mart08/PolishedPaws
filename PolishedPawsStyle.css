@@ -1,18 +1,15 @@
-/* Fonts */
 body {
     font-family: 'Montserrat', sans-serif;
     margin: 0;
     background-color: #0095b1;
 }
 
-/* Title Font */
 h1 {
     font-family: 'Cinzel', serif;
     font-size: 50pt;
     margin: 0;
 }
 
-/* Header */
 header {
     background-color: #d6d3cd;
     padding: 20px;
@@ -24,7 +21,6 @@ header {
     gap: 20px;
 }
 
-/* Navigation*/
 .main-nav {
     background-color: #004aad;
     display: flex;
@@ -42,7 +38,6 @@ header {
     text-decoration: underline;
 }
 
-/* Sale Section Box */
 .sale-box {
     border: 3px solid #7a4a2e;
     padding: 20px;
@@ -51,7 +46,6 @@ header {
     background-color: #d03d3d;
 }
 
-/* Sale Items */
 .sale-item {
     display: inline-block;
     width: 30%;
@@ -65,7 +59,11 @@ header {
     border-radius: 8px;
 }
 
-/* Footer (one line links) */
+.error-field {
+    border: 2px solid red !important;
+    color: red !important;
+}
+
 footer {
     background-color: #004aad;
     color: white;
@@ -82,3 +80,4 @@ footer a {
 footer a:hover {
     text-decoration: underline;
 }
+
