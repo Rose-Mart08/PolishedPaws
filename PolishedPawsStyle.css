@@ -71,6 +71,35 @@ footer {
     padding: 15px;
 }
 
+.signup-container {
+    max-width: 550px;
+    margin: 80px auto;
+}
+
+.signup-box {
+    background-color: rgba(255, 255, 255, 0.9);
+    padding: 50px;
+    border-radius: 10px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+}
+
+.signup-box h2 {
+    font-family: 'Cinzel', serif;
+    letter-spacing: 1px;
+}
+
+.btn-signup {
+    background-color: black;
+    color: white;
+    border-radius: 0;
+    padding: 10px;
+    transition: 0.3s ease;
+}
+
+.btn-signup:hover {
+    background-color: #333;
+}
+
 footer a {
     color: white;
     text-decoration: none;
@@ -80,4 +109,5 @@ footer a {
 footer a:hover {
     text-decoration: underline;
 }
+
 
