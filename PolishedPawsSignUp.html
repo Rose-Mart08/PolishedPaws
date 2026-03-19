@@ -125,82 +125,30 @@
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
     
 <script>
-const signupForm = document.getElementById("signupForm");
-const username = signupForm.querySelector("input[type='text']");
-const email = signupForm.querySelector("input[type='email']");
-const password = document.getElementById("password");
-const confirmPassword = document.getElementById("confirmPassword");
+/* Olanrewaju, Rose, Samir */
 
-function showError(field, message) {
-    field.classList.add("error-field");
-    clearError(field); // remove old message
-    const error = document.createElement("div");
-    error.className = "error-text";
-    error.textContent = message;
-    field.parentNode.appendChild(error);
-}
+const form = document.getElementById("shopperForm");
 
-function clearError(field) {
-    if (field.nextElementSibling && field.nextElementSibling.classList.contains("error-text")) {
-        field.nextElementSibling.remove();
-    }
-}
-
-function resetField(field) {
-    field.classList.remove("error-field");
-}
-
-function validateField(field) {
-    const value = field.value.trim();
-    if (value === "") {
-        showError(field, "This field is required");
-        return false;
-    }
-
-    if (field.type === "email") {
-        const pattern = /^[^ ]+@[^ ]+\.[a-z]{2,3}$/;
-        if (!pattern.test(value)) {
-            showError(field, "Enter a valid email (joe@test.com)");
-            return false;
-        }
-    }
-    return true;
-}
-
-[username, email, password, confirmPassword].forEach(field => {
-    field.addEventListener("blur", () => {
-        validateField(field);
-    });
-
-    field.addEventListener("input", () => {
-        resetField(field);
-        clearError(field);
-    });
-});
-
-signupForm.addEventListener("submit", function(e) {
+form.addEventListener("submit", function(e) {
     e.preventDefault();
-    let isValid = true;
 
-    [username, email, password, confirmPassword].forEach(field => {
-        if (!validateField(field)) isValid = false;
-    });
+    let shopper = {
+        name: document.getElementById("name").value.trim(),
+        email: document.getElementById("email").value.trim(),
+        phone: document.getElementById("phone").value.trim() || "N/A",
+        age: document.getElementById("age").value.trim(),
+        address: document.getElementById("address").value.trim()
+    };
 
-    if (password.value && confirmPassword.value && password.value !== confirmPassword.value) {
-        showError(password, "Passwords do not match");
-        showError(confirmPassword, "Passwords do not match");
-        isValid = false;
+    if (!shopper.name || !shopper.email || !shopper.age || !shopper.address) {
+        alert("Please fill all required fields.");
+        return;
     }
 
-    if (isValid) {
-        alert("Registration successful!");
-        signupForm.reset();
-    }
+    document.getElementById("jsonOutput").textContent =
+        JSON.stringify(shopper, null, 4);
 });
 </script>
 
 </body>
 </html>
-
-
-
