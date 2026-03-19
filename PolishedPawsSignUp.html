@@ -86,29 +86,41 @@
         <div class="signup-box">
             <h2>Create Your Account</h2>
 
-            <form id="signupForm">
-                <div class="mb-3">
-                    <label class="form-label">Username</label>
-                    <input type="text" class="form-control" required>
-                </div>
+            <!-- Olanrewaju -->
+<form id="shopperForm">
 
-                <div class="mb-3">
-                    <label class="form-label">Email</label>
-                    <input type="email" class="form-control" required>
-                </div>
+    <div class="mb-3">
+        <label>Name (Required)</label>
+        <input type="text" id="name" class="form-control" required>
+    </div>
 
-                <div class="mb-3">
-                    <label class="form-label">Password</label>
-                    <input type="password" id="password" class="form-control" required>
-                </div>
+    <div class="mb-3">
+        <label>Email (Required)</label>
+        <input type="email" id="email" class="form-control" required>
+    </div>
 
-                <div class="mb-3">
-                    <label class="form-label">Confirm Password</label>
-                    <input type="password" id="confirmPassword" class="form-control" required>
-                </div>
+    <div class="mb-3">
+        <label>Phone (Optional)</label>
+        <input type="text" id="phone" class="form-control">
+    </div>
 
-                <button type="submit" class="btn btn-signup w-100">Sign Up</button>
-            </form>
+    <div class="mb-3">
+        <label>Age (Required)</label>
+        <input type="number" id="age" class="form-control" required>
+    </div>
+
+    <div class="mb-3">
+        <label>Address (Required)</label>
+        <input type="text" id="address" class="form-control" required>
+    </div>
+
+    <button type="submit" class="btn btn-signup w-100">
+        Submit
+    </button>
+
+</form>
+            <!-- Rose -->
+<div id="jsonOutput"></div>
         </div>
     </div>
 </main>
