@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Polished Paws - Product Management</title>
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700&display=swap" rel="stylesheet">
+
+    <!-- External CSS -->
+    <link rel="stylesheet" href="PolishedPawsStyle.css">
+
+    <!-- Bootstrap CSS (cloud) -->
+    <!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- jQuery (cloud) -->
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+
+    <!-- Page-level CSS -->
+    <!-- Samir -->
+    <style>
+        .product-container {
+            max-width: 680px;
+            margin: 50px auto;
+        }
+
+        .product-box {
+            background: rgba(255, 255, 255, 0.96);
+            padding: 40px 35px;
+            border-radius: 12px;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12);
+            margin-bottom: 30px;
+        }
+
+        .product-box h2 {
+            font-family: 'Cinzel', serif;
+            font-size: 1.8rem;
+            margin-bottom: 25px;
+            color: #2c2c2c;
+        }
+
+        .btn-save {
+            background-color: #2e7d32;
+            color: white;
+            padding: 12px;
+            border-radius: 6px;
+            font-weight: 500;
+            transition: 0.3s ease;
+            border: none;
+            width: 100%;
+        }
+
+        .btn-save:hover {
+            background-color: #1b5e20;
+            color: white;
+        }
+
+        .btn-search {
+            background-color: #fff;
+            color: #333;
+            border: 1px solid #ccc;
+            padding: 8px 20px;
+            border-radius: 4px;
+            transition: 0.2s;
+        }
+
+        .btn-search:hover {
+            background-color: #f0f0f0;
+        }
+
+        .btn-update {
+            background-color: #2e7d32;
+            color: white;
+            padding: 12px;
+            border-radius: 6px;
+            font-weight: 500;
+            transition: 0.3s ease;
+            border: none;
+            width: 100%;
+        }
+
+        .btn-update:hover {
+            background-color: #1b5e20;
+            color: white;
+        }
+
+        /* Rose */
+        #jsonOutput {
+            margin-top: 15px;
+            background: #111;
+            color: #00ff00;
+            padding: 15px;
+            border-radius: 8px;
+            white-space: pre-wrap;
+            font-family: monospace;
+            font-size: 0.9rem;
+            display: none;
+        }
+
+        #searchJsonOutput {
+            margin-top: 15px;
+            background: #111;
+            color: #00ff00;
+            padding: 15px;
+            border-radius: 8px;
+            white-space: pre-wrap;
+            font-family: monospace;
+            font-size: 0.9rem;
+            display: none;
+        }
+
+        .section-title {
+            font-family: 'Cinzel', serif;
+            font-size: 1.3rem;
+            color: #2c2c2c;
+            margin-bottom: 5px;
+        }
+
+        .error-field {
+            border: 2px solid red !important;
+        }
+
+        .error-text {
+            color: red;
+            font-size: 0.85rem;
+            margin-top: 3px;
+        }
+    </style>
+</head>
+
+<body>
+
+<!-- Shared Header -->
+<header>
+    <section class="header-content">
+        <img src="PolPawLogo.png" alt="Polished Paws Logo" width="100" height="100">
+        <div>
+            <h1>Polished Paws</h1>
+            <p style="font-style: italic;">Exclusive Animal Spa and Pet Boarding</p>
+        </div>
+    </section>
+</header>
+
+<!-- Navigation — updated to include product.html link -->
+<!-- Samir -->
+<nav class="main-nav">
+    <a href="index.html">Home</a>
+    <a href="#">About Us</a>
+    <a href="#">Boarding</a>
+    <a href="#">Cart</a>
+    <a href="product.html">Products</a>
+    <a href="#">Spa Packages</a>
+    <a href="PolishedPawsSignUp.html">Login</a>
+    <a href="#">Contact</a>
+</nav>
+
+<main>
+    <div class="container product-container">
+
+        <!-- ======================== -->
+        <!-- SECTION 1: ADD PRODUCT   -->
+        <!-- HTML structure: Olanrewaju -->
+        <!-- ======================== -->
+        <div class="product-box">
+            <h2>Product Management</h2>
+
+            <form id="productForm" novalidate>
+
+                <!-- Product ID — Olanrewaju -->
+                <div class="mb-3">
+                    <label for="productId" class="form-label">Product ID: (Required)</label>
+                    <input type="text" id="productId" class="form-control" placeholder="e.g. 1">
+                    <div class="error-text" id="productIdError"></div>
+                </div>
+
+                <!-- Product Description — Olanrewaju -->
+                <div class="mb-3">
+                    <label for="productDesc" class="form-label">Product Description: (Required)</label>
+                    <input type="text" id="productDesc" class="form-control" placeholder="e.g. clothing">
+                    <div class="error-text" id="productDescError"></div>
+                </div>
+
+                <!-- Product Category — Bootstrap dropdown: Rose -->
+                <div class="mb-3">
+                    <label for="productCategory" class="form-label">Product Category: (Required)</label>
+                    <select id="productCategory" class="form-select">
+                        <option value="">-- Select Category --</option>
+                        <option value="Men's Clothing">Men's Clothing</option>
+                        <option value="Women's Clothing">Women's Clothing</option>
+                        <option value="Pet Food">Pet Food</option>
+                        <option value="Pet Toys">Pet Toys</option>
+                        <option value="Grooming">Grooming</option>
+                        <option value="Accessories">Accessories</option>
+                        <option value="Health & Wellness">Health & Wellness</option>
+                    </select>
+                    <div class="error-text" id="productCategoryError"></div>
+                </div>
+
+                <!-- Product UOM — Bootstrap dropdown: Rose -->
+                <div class="mb-3">
+                    <label for="productUOM" class="form-label">Product Unit of Measure: (Required)</label>
+                    <select id="productUOM" class="form-select">
+                        <option value="">-- Select Unit --</option>
+                        <option value="Piece">Piece</option>
+                        <option value="Pound">Pound</option>
+                        <option value="Ounce">Ounce</option>
+                        <option value="Kilogram">Kilogram</option>
+                        <option value="Liter">Liter</option>
+                        <option value="Pack">Pack</option>
+                        <option value="Box">Box</option>
+                    </select>
+                    <div class="error-text" id="productUOMError"></div>
+                </div>
+
+                <!-- Product Price — Samir -->
+                <div class="mb-3">
+                    <label for="productPrice" class="form-label">Product Price: (Required)</label>
+                    <input type="text" id="productPrice" class="form-control" placeholder="e.g. 49.99">
+                    <div class="error-text" id="productPriceError"></div>
+                </div>
+
+                <!-- Product Weight — Samir -->
+                <div class="mb-3">
+                    <label for="productWeight" class="form-label">Product Weight: (Optional)</label>
+                    <input type="text" id="productWeight" class="form-control" placeholder="e.g. 3">
+                </div>
+
+                <!-- Save Button — Rose -->
+                <button type="submit" class="btn btn-save">Save</button>
+
+            </form>
+
+            <!-- JSON Output after Save — Samir -->
+            <div id="jsonOutput"></div>
+
+        </div>
+
+        <!-- ========================== -->
+        <!-- SECTION 2: SEARCH PRODUCT  -->
+        <!-- jQuery search logic: Samir -->
+        <!-- ========================== -->
+        <div class="product-box">
+            <h2>Search Product</h2>
+
+            <div class="mb-3">
+                <label for="searchId" class="form-label">Product ID:</label>
+                <input type="text" id="searchId" class="form-control">
+            </div>
+
+            <button id="searchBtn" class="btn btn-search mb-4">Search</button>
+
+            <!-- Product Details label — Olanrewaju -->
+            <p class="section-title">Product Details</p>
+            <p class="section-title">JSON</p>
+
+            <!-- Search JSON result — Rose -->
+            <div id="searchJsonOutput"></div>
+
+            <!-- Update Button — Rose -->
+            <button id="updateBtn" class="btn btn-update mt-3" style="display:none;">Update</button>
+
+        </div>
+
+    </div>
+</main>
+
+<footer>
+    <p>
+        <a href="#">Privacy Policy</a> |
+        <a href="#">Terms of Use</a> |
+        <a href="#">Copyright</a>
+    </p>
+    <p>&copy; 2026 Polished Paws. All rights reserved.</p>
+</footer>
+
+<!-- Bootstrap JS (cloud) -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+<script>
+/* ====================================
+   JavaScript — Field Integrity Checks
+   Author: Samir
+   ==================================== */
+
+// In-memory product store (simulates what the AJAX/Node API will later handle)
+let productStore = [];
+
+// Utility: validate monetary format
+function isValidPrice(val) {
+    return /^\d+(\.\d{1,2})?$/.test(val.trim());
+}
+
+// Clear all error states
+function clearErrors() {
+    ["productId", "productDesc", "productCategory", "productUOM", "productPrice"].forEach(function(id) {
+        $("#" + id).removeClass("error-field");
+        $("#" + id + "Error").text("");
+    });
+}
+
+/* ====================================
+   Save Form Submit — Olanrewaju, Samir
+   ==================================== */
+$("#productForm").on("submit", function(e) {
+    e.preventDefault();
+    clearErrors();
+
+    let valid = true;
+
+    let productId       = $("#productId").val().trim();
+    let productDesc     = $("#productDesc").val().trim();
+    let productCategory = $("#productCategory").val();
+    let productUOM      = $("#productUOM").val();
+    let productPrice    = $("#productPrice").val().trim();
+    let productWeight   = $("#productWeight").val().trim();
+
+    // Required field checks
+    if (!productId) {
+        $("#productId").addClass("error-field");
+        $("#productIdError").text("Product ID is required.");
+        valid = false;
+    }
+
+    if (!productDesc) {
+        $("#productDesc").addClass("error-field");
+        $("#productDescError").text("Product Description is required.");
+        valid = false;
+    }
+
+    if (!productCategory) {
+        $("#productCategory").addClass("error-field");
+        $("#productCategoryError").text("Product Category is required.");
+        valid = false;
+    }
+
+    if (!productUOM) {
+        $("#productUOM").addClass("error-field");
+        $("#productUOMError").text("Product Unit of Measure is required.");
+        valid = false;
+    }
+
+    if (!productPrice) {
+        $("#productPrice").addClass("error-field");
+        $("#productPriceError").text("Product Price is required.");
+        valid = false;
+    } else if (!isValidPrice(productPrice)) {
+        $("#productPrice").addClass("error-field");
+        $("#productPriceError").text("Enter a valid monetary amount (e.g. 49.99).");
+        valid = false;
+    }
+
+    if (!valid) return;
+
+    /* ====================================
+       JSON Product Document — Rose
+       ==================================== */
+    let product = {
+        productId:       productId,
+        productDesc:     productDesc,
+        productCategory: productCategory,
+        productUOM:      productUOM,
+        productPrice:    parseFloat(productPrice),
+        productWeight:   productWeight !== "" ? parseFloat(productWeight) : null
+    };
+
+    // Save to in-memory store
+    // Remove existing product with same ID if present (update behavior)
+    productStore = productStore.filter(function(p) { return p.productId !== productId; });
+    productStore.push(product);
+
+    // Display JSON on page
+    $("#jsonOutput").text(JSON.stringify(product, null, 2)).show();
+
+    // NOTE: AJAX transport to RESTful NodeJS API will be wired in a later assignment
+});
+
+/* ====================================
+   jQuery Search — Samir
+   ==================================== */
+$("#searchBtn").on("click", function() {
+    let searchId = $("#searchId").val().trim();
+
+    if (!searchId) {
+        alert("Please enter a Product ID to search.");
+        return;
+    }
+
+    // Search the in-memory product store by ID
+    let found = productStore.find(function(p) { return p.productId === searchId; });
+
+    if (found) {
+        $("#searchJsonOutput").text(JSON.stringify(found, null, 2)).show();
+        $("#updateBtn").show();
+    } else {
+        $("#searchJsonOutput").text('No product found with ID: "' + searchId + '"').show();
+        $("#updateBtn").hide();
+    }
+});
+
+/* ====================================
+   Update Button — Rose
+   ==================================== */
+$("#updateBtn").on("click", function() {
+    let searchId = $("#searchId").val().trim();
+    let found = productStore.find(function(p) { return p.productId === searchId; });
+
+    if (!found) return;
+
+    // Pre-fill the form fields with the found product's data
+    $("#productId").val(found.productId);
+    $("#productDesc").val(found.productDesc);
+    $("#productCategory").val(found.productCategory);
+    $("#productUOM").val(found.productUOM);
+    $("#productPrice").val(found.productPrice.toFixed(2));
+    $("#productWeight").val(found.productWeight !== null ? found.productWeight : "");
+
+    // Scroll to top form for editing
+    $("html, body").animate({ scrollTop: $("#productForm").offset().top - 20 }, 400);
+
+    // NOTE: AJAX transport to RESTful NodeJS API will be wired in a later assignment
+});
+</script>
+
+</body>
+</html>
