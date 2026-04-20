@@ -19,70 +19,23 @@
     <!-- AngularJS -->
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
 
-    <!-- Samir -->
+    <!-- Samir Sultanov - page styles -->
     <style>
-        .shipping-container {
-            max-width: 680px;
-            margin: 50px auto;
-        }
-
-        .shipping-box {
-            background: rgba(255, 255, 255, 0.96);
-            padding: 40px 35px;
-            border-radius: 12px;
-            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12);
-            margin-bottom: 30px;
-        }
-
-        .shipping-box h2 {
-            font-family: 'Cinzel', serif;
-            font-size: 2rem;
-            margin-bottom: 25px;
-            color: #2c2c2c;
-        }
-
-        .btn-submit {
-            background-color: #fff;
-            color: #333;
-            border: 1px solid #ccc;
-            padding: 8px 20px;
-            border-radius: 4px;
-            transition: 0.2s;
-        }
-
-        .btn-submit:hover {
-            background-color: #f0f0f0;
-        }
-
-        /* Rose */
-        .json-output {
-            margin-top: 20px;
-            background: #111;
-            color: #00ff00;
-            padding: 15px;
-            border-radius: 8px;
-            white-space: pre-wrap;
-            font-family: monospace;
-            font-size: 0.9rem;
-        }
-
-        .json-title {
-            font-family: 'Cinzel', serif;
-            font-size: 1.6rem;
-            margin-top: 20px;
-            color: #2c2c2c;
-        }
-
-        .error-text {
-            color: red;
-            font-size: 0.85rem;
-            margin-top: 3px;
-        }
+        .shipping-container { max-width: 680px; margin: 50px auto; }
+        .shipping-box { background: rgba(255,255,255,0.96); padding: 40px 35px; border-radius: 12px; box-shadow: 0 8px 25px rgba(0,0,0,0.12); margin-bottom: 30px; }
+        .shipping-box h2 { font-family: 'Cinzel', serif; font-size: 2rem; margin-bottom: 25px; color: #2c2c2c; }
+        .btn-submit { background-color: #fff; color: #333; border: 1px solid #ccc; padding: 8px 20px; border-radius: 4px; transition: 0.2s; }
+        .btn-submit:hover { background-color: #f0f0f0; }
+        /* Samir Sultanov - JSON output */
+        .json-output { margin-top: 20px; background: #111; color: #00ff00; padding: 15px; border-radius: 8px; white-space: pre-wrap; font-family: monospace; font-size: 0.9rem; }
+        .json-title { font-family: 'Cinzel', serif; font-size: 1.6rem; margin-top: 20px; color: #2c2c2c; }
+        .error-text { color: red; font-size: 0.85rem; margin-top: 3px; }
     </style>
 </head>
 
 <body>
 
+<!-- Samir Sultanov - header -->
 <header>
     <section class="header-content">
         <img src="PolPawLogo.png" alt="Polished Paws Logo" width="100" height="100">
@@ -93,7 +46,7 @@
     </section>
 </header>
 
-<!-- Samir -->
+<!-- Samir Sultanov - navigation -->
 <nav class="main-nav">
     <a href="index.html">Home</a>
     <a href="#">About Us</a>
@@ -103,46 +56,43 @@
     <a href="#">Spa Packages</a>
     <a href="PolishedPawsSignUp.html">Login</a>
     <a href="shippingcarrier.html">Shipping</a>
+    <a href="billingdetails.html">Billing</a>
+    <a href="handlereturns.html">Returns</a>
     <a href="#">Contact</a>
 </nav>
 
 <main>
-
-    <!-- Olanrewaju -->
+    <!-- Samir Sultanov - AngularJS shipping form -->
     <div class="container shipping-container" ng-controller="ShippingController">
-
         <div class="shipping-box">
             <h2>Shipping Carrier Information</h2>
 
-            <!-- Olanrewaju -->
+            <!-- Samir Sultanov - address fields -->
             <div class="mb-3">
                 <label class="form-label">Address:</label>
                 <input type="text" class="form-control" ng-model="address" placeholder="e.g. 1600 Woodland Rd">
                 <div class="error-text" ng-show="submitted && !address">Address is required.</div>
             </div>
 
-            <!-- Olanrewaju -->
             <div class="mb-3">
                 <label class="form-label">City:</label>
                 <input type="text" class="form-control" ng-model="city" placeholder="e.g. Abington">
                 <div class="error-text" ng-show="submitted && !city">City is required.</div>
             </div>
 
-            <!-- Olanrewaju -->
             <div class="mb-3">
                 <label class="form-label">State:</label>
                 <input type="text" class="form-control" ng-model="state" placeholder="e.g. PA" maxlength="2">
                 <div class="error-text" ng-show="submitted && !state">State is required.</div>
             </div>
 
-            <!-- Olanrewaju -->
             <div class="mb-3">
                 <label class="form-label">ZIP Code:</label>
                 <input type="text" class="form-control" ng-model="zip" placeholder="e.g. 19001">
                 <div class="error-text" ng-show="submitted && !zip">ZIP Code is required.</div>
             </div>
 
-            <!-- Rose -->
+            <!-- Samir Sultanov - carrier and method dropdowns -->
             <div class="mb-3">
                 <label class="form-label">Select a shipping carrier:</label>
                 <select class="form-select" ng-model="carrierName">
@@ -154,7 +104,6 @@
                 <div class="error-text" ng-show="submitted && !carrierName">Shipping carrier is required.</div>
             </div>
 
-            <!-- Rose -->
             <div class="mb-3">
                 <label class="form-label">Select a shipping method:</label>
                 <select class="form-select" ng-model="shippingMethod">
@@ -166,47 +115,37 @@
                 <div class="error-text" ng-show="submitted && !shippingMethod">Shipping method is required.</div>
             </div>
 
-            <!-- Rose -->
+            <!-- Samir Sultanov - submit button -->
             <button type="button" class="btn btn-submit" ng-click="displayJSON()">Submit</button>
 
-            <!-- Samir -->
+            <!-- Samir Sultanov - JSON display -->
             <div ng-show="showJSON">
                 <h2 class="json-title">Shipping Information JSON:</h2>
                 <pre class="json-output">{{ shippingInfoJSON | json }}</pre>
             </div>
-
         </div>
     </div>
 </main>
 
 <footer>
-    <p>
-        <a href="#">Privacy Policy</a> |
-        <a href="#">Terms of Use</a> |
-        <a href="#">Copyright</a>
-    </p>
+    <p><a href="#">Privacy Policy</a> | <a href="#">Terms of Use</a> | <a href="#">Copyright</a></p>
     <p>&copy; 2026 Polished Paws. All rights reserved.</p>
 </footer>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 
 <script>
-/* Samir */
+/* Samir Sultanov - AngularJS shipping controller */
 angular.module('shippingApp', [])
     .controller('ShippingController', function($scope) {
-
         $scope.showJSON = false;
         $scope.submitted = false;
 
-        /* Olanrewaju */
+        /* Samir Sultanov - build and send shipping JSON */
         $scope.displayJSON = function() {
             $scope.submitted = true;
+            if (!$scope.address || !$scope.city || !$scope.state || !$scope.zip || !$scope.carrierName || !$scope.shippingMethod) return;
 
-            if (!$scope.address || !$scope.city || !$scope.state || !$scope.zip || !$scope.carrierName || !$scope.shippingMethod) {
-                return;
-            }
-
-            /* Rose */
             $scope.shippingInfoJSON = {
                 address:        $scope.address,
                 city:           $scope.city,
@@ -218,17 +157,14 @@ angular.module('shippingApp', [])
 
             $scope.showJSON = true;
 
-            /* AJAX transport to RESTful NodeJS API — to be wired in a later assignment */
+            /* Samir Sultanov - AJAX to Node server port 3006 */
             $.ajax({
-                url: "/echo/json/",
+                url: "http://130.203.136.203:3006/shipping",
                 type: "POST",
-                data: "json=" + JSON.stringify($scope.shippingInfoJSON),
-                success: function(response) {
-                    console.log("Shipping response:", response);
-                },
-                error: function() {
-                    console.log("AJAX error — NodeJS API not yet connected.");
-                }
+                contentType: "application/json",
+                data: JSON.stringify($scope.shippingInfoJSON),
+                success: function(response) { console.log("Shipping response:", response); },
+                error: function() { console.log("AJAX error - NodeJS API not yet connected."); }
             });
         };
     });
