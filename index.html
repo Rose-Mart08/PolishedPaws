@@ -4,39 +4,56 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Polished Paws - Home</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
     <link rel="stylesheet" href="PolishedPawsStyle.css">
 </head>
 <body>
-<header>
-    <section class="header-content text-center p-4">
-        <img src="PolPawLogo.png" alt="Polished Paws Logo" width="100">
-        <h1>Polished Paws</h1>
-        <p><i>Exclusive Animal Spa and Pet Boarding</i></p>
-    </section>
-</header>
-<nav class="main-nav d-flex justify-content-center gap-3 p-3 bg-light border-bottom">
-    <a href="index.html">Home</a>
-    <a href="about.html">About Us</a>
-    <a href="boarding.html">Boarding</a>
-    <a href="shoppingcart.html">Cart</a>
-    <a href="product.html">Products</a>
-    <a href="spa.html">Spa Packages</a>
-    <a href="PolishedPawsSignUp.html">Login</a>
-    <a href="contact.html">Contact</a>
-</nav>
-<main class="container mt-4">
-    <div class="row text-center">
-        <h2>ON SALE NOW!</h2>
-        <div class="col-md-4"><img src="PolPawLeash.png" class="img-fluid" alt="Leash"><h3>Leashes</h3><p>20% off</p></div>
-        <div class="col-md-4"><img src="PolPawBowls.png" class="img-fluid" alt="Bowls"><h3>Pet Bowls</h3><p>BOGO 50% off</p></div>
-        <div class="col-md-4"><img src="PolPawCareKit.png" class="img-fluid" alt="Kit"><h3>Care Set</h3><p>Save $15</p></div>
-    </div>
-</main>
-<footer class="text-center p-4 mt-5 bg-dark text-white">
-    <p>&copy; 2026 Polished Paws. All rights reserved.</p>
-</footer>
+
+    <header>
+        <div class="logo-container">
+            <img src="PolPawLogo.png" alt="Polished Paws Logo" class="logo">
+            <h1>Polished Paws</h1>
+            <p><i>Exclusive Animal Spa and Pet Boarding</i></p>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About Us</a></li>
+                <li><a href="boarding.html">Boarding</a></li>
+                <li><a href="shoppingcart.html">Cart</a></li>
+                <li><a href="product.html">Products</a></li>
+                <li><a href="spa.html">Spa Packages</a></li>
+                <li><a href="PolishedPawsSignUp.html">Login</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="sale-banner">
+            <h2>ON SALE NOW!</h2>
+            <div class="product-grid">
+                <div class="product-card">
+                    <img src="PolPawLeash.png" alt="Leashes">
+                    <h3>Leashes</h3>
+                    <p>Premium Polished Leashes</p>
+                </div>
+                <div class="product-card">
+                    <img src="PolPawBowls.png" alt="Pet Bowls">
+                    <h3>Pet Bowls</h3>
+                    <p>Buy one, get one 50% off</p>
+                </div>
+                <div class="product-card">
+                    <img src="PolPawCareKit.png" alt="Natural Paw Care Set">
+                    <h3>Natural Paw Care Set</h3>
+                    <p>Save $15 on all-natural sets</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Polished Paws. All rights reserved.</p>
+    </footer>
+
 </body>
 </html>
