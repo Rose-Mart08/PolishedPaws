@@ -4,56 +4,79 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Polished Paws - Home</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700&display=swap" rel="stylesheet">
+
     <link rel="stylesheet" href="PolishedPawsStyle.css">
+
+    <style>
+        aside {
+            background-color: #d6d3cd;
+            padding: 15px;
+            border-radius: 8px;
+            margin: 20px;
+        }
+    </style>
 </head>
+
 <body>
 
-    <header>
-        <div class="logo-container">
-            <img src="PolPawLogo.png" alt="Polished Paws Logo" class="logo">
+<header>
+    <section class="header-content">
+        <img src="PolPawLogo.png" alt="Polished Paws Logo" width="100" height="100">
+        <div>
             <h1>Polished Paws</h1>
-            <p><i>Exclusive Animal Spa and Pet Boarding</i></p>
+            <p style="font-style: italic;">Exclusive Animal Spa and Pet Boarding</p>
         </div>
-        <nav>
-            <ul>
-                <li><a href="index.html">Home</a></li>
-                <li><a href="about.html">About Us</a></li>
-                <li><a href="boarding.html">Boarding</a></li>
-                <li><a href="shoppingcart.html">Cart</a></li>
-                <li><a href="product.html">Products</a></li>
-                <li><a href="spa.html">Spa Packages</a></li>
-                <li><a href="PolishedPawsSignUp.html">Login</a></li>
-                <li><a href="contact.html">Contact</a></li>
-            </ul>
-        </nav>
-    </header>
+    </section>
+</header>
 
-    <main>
-        <section class="sale-banner">
-            <h2>ON SALE NOW!</h2>
-            <div class="product-grid">
-                <div class="product-card">
-                    <img src="PolPawLeash.png" alt="Leashes">
-                    <h3>Leashes</h3>
-                    <p>Premium Polished Leashes</p>
-                </div>
-                <div class="product-card">
-                    <img src="PolPawBowls.png" alt="Pet Bowls">
-                    <h3>Pet Bowls</h3>
-                    <p>Buy one, get one 50% off</p>
-                </div>
-                <div class="product-card">
-                    <img src="PolPawCareKit.png" alt="Natural Paw Care Set">
-                    <h3>Natural Paw Care Set</h3>
-                    <p>Save $15 on all-natural sets</p>
-                </div>
-            </div>
-        </section>
-    </main>
+<nav class="main-nav">
+    <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About Us</a></li>
+        <li><a href="boarding.html">Boarding</a></li>
+        <li><a href="shoppingcart.html">Cart</a></li>
+        <li><a href="product.html">Products</a></li>
+        <li><a href="spa.html">Spa Packages</a></li>
+        <li><a href="PolishedPawsSignUp.html">Login</a></li>
+        <li><a href="contact.html">Contact</a></li>
+    </ul>
+</nav>
 
-    <footer>
-        <p>&copy; 2026 Polished Paws. All rights reserved.</p>
-    </footer>
+<main>
+    <section class="sale-box">
+        <h2>ON SALE NOW!</h2>
+
+        <article class="sale-item">
+            <img src="PolPawLeash.png" alt="Pet Leash">
+            <h3>Leashes</h3>
+            <p>Now 20% off – Premium Polished Paw Leashes.</p>
+        </article>
+
+        <article class="sale-item">
+            <img src="PolPawBowls.png" alt="Pet Bowls">
+            <h3>Pet Bowls</h3>
+            <p>Buy one, get one 50% off – Stainless Steel Pet Bowls.</p>
+        </article>
+
+        <article class="sale-item">
+            <img src="PolPawCareKit.png" alt="Paw Care Kit">
+            <h3>Natural Paw Care Set</h3>
+            <p>Save $15 on our all-natural paw care bundle.</p>
+        </article>
+    </section>
+</main>
+
+<aside>
+    <h2>Special Offers</h2>
+    <p>Check back weekly for new spa packages and boarding discounts!</p>
+</aside>
+
+<footer>
+    <p>&copy; 2026 Polished Paws. All rights reserved.</p>
+</footer>
 
 </body>
 </html>
